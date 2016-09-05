@@ -47,3 +47,12 @@ function hideAllDivs() {
   $("div[id='mostrarHistoricoDiv']").hide();
   $("div[id='mostrarModificarCeldaDiv']").hide();
 }
+
+function escapeHTML(html){
+    //http://stackoverflow.com/questions/24816/escaping-html-strings-with-jquery
+    html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    var escaped = html; 
+    var findReplace = [[/&/g, "&amp;"], [/</g, "&lt;"], [/>/g, "&gt;"], [/"/g, "&quot;"]] 
+    for(var item in findReplace) 
+        escaped = escaped.replace(findReplace[item][0], findReplace[item][1]);
+}
